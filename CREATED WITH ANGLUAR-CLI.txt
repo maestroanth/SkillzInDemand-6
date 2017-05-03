@@ -1,0 +1,1 @@
+However with some issues, check pre-install notes. I do not know how important the package.json is on the C:\user\localuser\ is to running the actual app. Seems irrelevant after the creating point.
