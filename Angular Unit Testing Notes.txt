@@ -1,0 +1,56 @@
+Angular.io Regurgitation Notes
+
+TestBed 
+	TB Creates an angular testing module aka @NgModule class that is
+then configured with the configureTestingModule method to create
+the module testing environment. This method takes an @NgModule-like
+object which have most of the properties of a normal angular module.
+
+The metadata object simply declares the component to test.  It lacks
+imports because it already has configuration data needed in the
+component and doesn't interact with any other components.
+
+Call configureTestingModule within a beforeEach so that TestBed
+resets itself before each test runs.
+
+This is merely a foundation for testing an app. Later one would call
+TestBed.configureTestingModule wiht more metadata that define
+additional imports, declarations, providers, and schemas to fit
+your application tests. Optional override methods can fine-tune
+aspects of the config.
+
+createComponent
+	After TB is configured you need to create an instance
+of the component-under-test  using TestBed.createComponent. Do
+not re-config TB after calling cC.  If you do, TB throws an error
+and your device will implode into an ultra dense singularity.  This
+method returns a CF (see next)
+
+ComponentFixture, DebugElement, and query(By.css)
+	CF is a handle on the test environment surrounding the created
+component. (Handle = abstract reference to a resource). The CF provides
+access to the component instance itself and to the DebugElement (DE)
+which is a handle on the component's DOM element.
+
+The title property is interpolated into the DOM within <h1> tags.  Use the
+CF's DE to query for the <h1> element by CSS selector.
+
+The query method takes a predicate function and searches the CF's
+entire DOM tree for the "first" element that satisfies the predicate.
+The result is a "defferent" DE, one associated with the matching DOM element.
+A predicate is a function that returns a boolean. A query predicate 
+receives a DebugElement and returns true if the element meets the 
+selection criteria.
+
+The queryAll method returns an array of all DebugElements that satisfy
+the predicate.
+
+By class
+	The by class is a utility that produces useful predicates. Its By.css
+static method produces a standard CSS selector predicate that filters the
+same way as a jQuery selector.
+
+Conclusively, this setup assigns the DOM element from DebugElement nativeElement
+property to "el", the tests assert that "el" contains the expected title text.
+
+	
