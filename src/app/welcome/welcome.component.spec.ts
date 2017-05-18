@@ -7,7 +7,6 @@ import { UserService } from '../user.service';
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
   let fixture: ComponentFixture<WelcomeComponent>;
-  // query for the title <h1> by CSS element selector
   let de: DebugElement;
   let el: HTMLElement;
   // stub UserService for test purposes

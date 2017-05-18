@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\banner-inline",
+    "\\src\\app\\welcome",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\app\\welcome\\welcome.component.spec.ts",
   "PreviewInSolutionExplorer": false
 }
